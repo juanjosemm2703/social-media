@@ -14,24 +14,25 @@
         <input type="submit" value="Submit">
         </form>
     </div>
-    <div class="post_card">
+    <div class="post_list">
+        <div class="post_card">
+        </div>
+        <div class="post_card">
+        </div>
+        <div class="post_card">
+        </div>
+        <div class="post_card">
+        </div>
+        <div class="post_card">
+        </div>
+        <div class="post_card">
+        </div>
+        <div class="post_card">
+        </div>
+        <div class="post_card">
+        </div>    
+        <div class="post_card">
+        </div>
     </div>
-    <div class="post_card">
-    </div>
-    <div class="post_card">
-    </div>
-    <div class="post_card">
-    </div>
-    <div class="post_card">
-    </div>
-    <div class="post_card">
-    </div>
-    <div class="post_card">
-    </div>
-    <div class="post_card">
-    </div>    
-    <div class="post_card">
-    </div>
-
 </section>
 @endsection
