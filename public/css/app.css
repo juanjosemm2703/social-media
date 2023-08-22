@@ -25,17 +25,48 @@ body {
     background-color: rgb(234, 237, 237);
 }
 
+label {
+    display:inline-block;
+    padding: 15px 0 8px 0;
+    font-size: 1.5rem;
+}
+input[type=text], textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    resize: none;
+}
+
+input[type=submit] {
+    background-color: var( --background-color);
+    width: 100%;
+    opacity: 0.95;
+    color: white;
+    padding: 12px 20px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+    font-size: 1.7rem;
+}
+
+input[type=submit]:hover {
+    opacity: 1;
+}
+
 header{
     position: relative;
     background-color: var( --background-color);
-    opacity: 0.9;
+    opacity: 0.95;
     padding: 0 2rem;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
 }
 
 .navbar {
     width: 100%;
-    max-width: 1200px;
+    max-width: 600px;
     padding: 15px 0;
     margin: 0 auto;
     display:flex;
@@ -81,7 +112,7 @@ header{
     
     width: 100%;
     height: calc(100vh - 60px);
-    max-width: 1200px;
+    max-width: 600px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
@@ -91,7 +122,7 @@ header{
 }
 
 .post_form{
-    height:150px;
+    height:100%;
     margin: 20px ;
     border-bottom: 1px solid #ccc;
 }
@@ -109,8 +140,13 @@ header{
 }
 
 
+
 @media (min-width: 900px){
+    .navbar{
+        max-width: 1200px;
+    }
     .posts {
+        max-width: 1200px;
         flex-direction: row;
     }
     .post_list{
