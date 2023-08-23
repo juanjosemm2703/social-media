@@ -18,6 +18,11 @@ html{
     font-size: 62.5%;
 }
 
+
+p{
+   font-size: 1.6rem;
+}
+
 body {
     display: flex;
 	flex-direction: column;
@@ -26,27 +31,53 @@ body {
 }
 
 label {
+    font-weight: 300;
+    font-size: 1.6rem;
     display:inline-block;
     padding: 15px 0 8px 0;
     font-size: 1.5rem;
 }
+
 input[type=text], textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ccc;
-    border-radius: 4px;
+    border-radius: 6px;
     resize: none;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+}
+
+h1{
+    font-weight: 500;
+    font-size: 2.6rem;
+}
+
+h2{
+    font-weight: 400;
+    font-size: 2.3rem;
+}
+
+h4{
+    font-weight: 300;
+    font-size: 1.6rem;
+}
+
+i{
+    font-size: 1.6rem;
+    color: var(--background-color);
+    opacity: 0.9;
 }
 
 input[type=submit] {
     background-color: var( --background-color);
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
     width: 100%;
     opacity: 0.95;
     color: white;
     padding: 12px 20px;
     margin: 10px 0;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
     float: right;
     font-size: 1.7rem;
@@ -107,6 +138,7 @@ header{
     font-weight: bold;
 }
 
+/* home_page css */
 
 .posts{
     
@@ -121,24 +153,92 @@ header{
 
 }
 
+.posts::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, and Opera */
+}
+
+
 .post_form{
     height:100%;
-    margin: 20px ;
+    padding: 20px ;
     border-bottom: 1px solid #ccc;
 }
 
 .post_card{
     background-color: white;
-    height:150px;
+    width: auto;
+    max-width: 90%;
     margin: 20px ;
     border:1px solid #ccc;
     border-radius: 16px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
 }
-.posts::-webkit-scrollbar {
+
+
+.post__card--title{
+    display: flex;
+    align-items: center;
+    gap:15px;
+    padding: 20px;
+}
+
+
+.post__card--title a{
+    color: var(--background-color);
+    text-decoration: none;
+}
+
+.post__card--footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px 10px 20px;
+}
+
+.post__card--footer .date {
+    color: #888;
+}
+
+/* user_page css */
+
+.users{
+    display: flex;
+    flex-direction: column;
+    padding: 20px 10px;
+    height: calc(100vh - 60px);
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    overflow-y: scroll;
+}
+.users__grid {
+    margin-top: 20px;
+    display: grid;
+    align-items: center;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap:40px;
+}
+
+.users__card{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 20px;
+    border:1px solid #ccc;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+}
+
+.users::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
 
+.users__card--footer{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 5px;
+}
 
 
 @media (min-width: 900px){

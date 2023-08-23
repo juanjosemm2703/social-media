@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="{{asset('css/app.css')}}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <title>@yield('title')</title>
 </head>
 <body>
@@ -16,8 +17,8 @@
     <div class="logo">PostHub</div>
     <nav>
         <ul class = "links">
-            <li><a href="#" class="active"> Home </a></li>
-            <li><a href="#"> Users </a></li>  
+            <li><a href="{{url("/")}}" class="active"> Home </a></li>
+            <li><a href="{{url("users")}}"> Users </a></li>  
         </ul>
     </nav>
 </div>
