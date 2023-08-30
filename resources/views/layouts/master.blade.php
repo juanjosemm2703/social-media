@@ -14,11 +14,11 @@
 <body>
 <header>
 <div class="navbar">
-    <div class="logo">PostHub</div>
-    <nav>
-        <ul class = "links">
-            <li><a href="{{url("/")}}" class="active"> Home </a></li>
-            <li><a href="{{url("users")}}"> Users </a></li>  
+    <div class="navbar__logo">PostHub</div>
+    <nav class="navbar__nav">
+        <ul class = "navbar__links">
+            <li><a href="{{url("/")}}" class="navbar__link-item navbar__link-item--active"> Home </a></li>
+            <li><a href="{{url("users")}}" class="navbar__link-item"> Users </a></li>  
         </ul>
     </nav>
 </div>

@@ -5,7 +5,7 @@
 @section('content')
 
 <section class="posts">
-    <div class="post_form">
+    <div class="post-form">
         <form>
         <label for="fname">User Name:</label><br>
         <input type="text" id="uname" name="uname" placeholder="Your name..."><br>
@@ -16,93 +16,16 @@
         <input type="submit" value="Submit">
         </form>
     </div>
-    <div class="post_list">
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
+    <div class="post-list">
+        <div class="post-card">
+            <div class="post-card__title">
+                <a href="{{url("post/1")}}"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
                 <i class="fa-regular fa-comment fa-lg"></i>
                 <p>25</p>
             </div>
-            <div class="post__card--footer">
+            <div class="post-card__footer">
                 <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
-            </div>
-        </div>
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
-                <i class="fa-regular fa-comment fa-lg"></i>
-                <p>25</p>
-            </div>
-            <div class="post__card--footer">
-                <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
-            </div>
-        </div>
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
-                <i class="fa-regular fa-comment fa-lg"></i>
-                <p>25</p>
-            </div>
-            <div class="post__card--footer">
-                <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
-            </div>
-        </div>
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
-                <i class="fa-regular fa-comment fa-lg"></i>
-                <p>25</p>
-            </div>
-            <div class="post__card--footer">
-                <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
-            </div>
-        </div>
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
-                <i class="fa-regular fa-comment fa-lg"></i>
-                <p>25</p>
-            </div>
-            <div class="post__card--footer">
-                <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
-            </div>
-        </div>
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
-                <i class="fa-regular fa-comment fa-lg"></i>
-                <p>25</p>
-            </div>
-            <div class="post__card--footer">
-                <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
-            </div>
-        </div>
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
-                <i class="fa-regular fa-comment fa-lg"></i>
-                <p>25</p>
-            </div>
-            <div class="post__card--footer">
-                <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
-            </div>
-        </div>
-        <div class="post_card">
-            <div class="post__card--title">
-                <a href="#"><h2>Recipe Share - Delicious Chocolate Cake</h2></a>
-                <i class="fa-regular fa-comment fa-lg"></i>
-                <p>25</p>
-            </div>
-            <div class="post__card--footer">
-                <h4>BakingEnthusiast</h4>
-                <p class="date">September 3, 2023</p>
+                <p class="post-card__footer-date">September 3, 2023</p>
             </div>
         </div>
     </div>

@@ -106,7 +106,7 @@ header{
     overflow: hidden;
 }
 
-.navbar .logo {
+.navbar__logo {
     display: flex;
     align-items: center;
     color: var(--text-color);
@@ -115,25 +115,25 @@ header{
     font-size: 2rem;
 }
 
-.navbar .links {
+.navbar__links {
     list-style: none;
     display: flex;
     gap: 2rem;
 }
 
-.navbar .links a {
+.navbar__link-item{
     color: var(--text-color);
+    transition: color .4s ease-in-out;
     text-decoration: none;
-    font-size: 1.7rem;
-    transition: color .4s ease-in-out
+    font-size: 1.7rem
 }
 
 
-.navbar a:hover {
+.navbar__link-item:hover {
     color: var(--secondary-color);
 }
 
-.navbar a.active {
+.navbar__link-item--active {
     color: var(--accent-color);
     font-weight: bold;
 }
@@ -158,13 +158,13 @@ header{
 }
 
 
-.post_form{
+.post-form{
     height:100%;
     padding: 20px ;
     border-bottom: 1px solid #ccc;
 }
 
-.post_card{
+.post-card{
     background-color: white;
     width: auto;
     max-width: 90%;
@@ -175,7 +175,7 @@ header{
 }
 
 
-.post__card--title{
+.post-card__title{
     display: flex;
     align-items: center;
     gap:15px;
@@ -183,19 +183,20 @@ header{
 }
 
 
-.post__card--title a{
+.post-card__title a{
     color: var(--background-color);
     text-decoration: none;
+    cursor: pointer;
 }
 
-.post__card--footer{
+.post-card__footer{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 0 20px 10px 20px;
 }
 
-.post__card--footer .date {
+.post-card__footer-date {
     color: #888;
 }
 
@@ -227,17 +228,26 @@ header{
     border:1px solid #ccc;
     border-radius: 16px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
+    cursor: pointer;
 }
 
 .users::-webkit-scrollbar {
     display: none; /* for Chrome, Safari, and Opera */
 }
 
-.users__card--footer{
+.users__card-footer{
     display: flex;
     justify-content: flex-start;
     align-items: center;
     gap: 5px;
+}
+
+.post__details-card{
+    display: grid;
+    background-color: white;
+    border:1px solid #ccc;
+    border-radius: 16px;
+    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
 }
 
 
