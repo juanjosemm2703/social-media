@@ -6,6 +6,7 @@
     <section class="users">
         <h1>Users</h1>
         <div class="users__grid">
+            <a href="{{url("user/1")}}">
             <div class="users__card">
                 <h2>Juan Martinez</h2>
                 <div class="users__card-footer">
@@ -13,10 +14,7 @@
                         <p>32 posts</p>`
                 </div>
             </div>
-            <div class="users__card">
-                    <h2>Juan Martinez</h2>
-                    <p>32 posts</p>
-            </div>
+            </a>
         </div>
     <section>
 @endsection

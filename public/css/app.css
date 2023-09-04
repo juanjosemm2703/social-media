@@ -18,9 +18,14 @@ html{
     font-size: 62.5%;
 }
 
+a{
+    color: var(--background-color);
+    text-decoration: none;
+    cursor: pointer;
+}
 
 p{
-   font-size: 1.6rem;
+   font-size: 1.7rem;
 }
 
 body {
@@ -68,6 +73,11 @@ i{
     opacity: 0.9;
 }
 
+button{
+    background-color: transparent;
+    border: 0px;
+}
+
 input[type=submit] {
     background-color: var( --background-color);
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
@@ -79,7 +89,6 @@ input[type=submit] {
     border: none;
     border-radius: 6px;
     cursor: pointer;
-    float: right;
     font-size: 1.7rem;
 }
 
@@ -153,13 +162,13 @@ header{
 
 }
 
+
 .posts::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+    display: none; 
 }
 
 
 .post-form{
-    height:100%;
     padding: 20px ;
     border-bottom: 1px solid #ccc;
 }
@@ -167,7 +176,7 @@ header{
 .post-card{
     background-color: white;
     width: auto;
-    max-width: 90%;
+    max-width: 100%;
     margin: 20px ;
     border:1px solid #ccc;
     border-radius: 16px;
@@ -182,16 +191,14 @@ header{
     padding: 20px;
 }
 
-
-.post-card__title a{
-    color: var(--background-color);
-    text-decoration: none;
-    cursor: pointer;
+.post-card__message{
+    padding: 15px;
 }
 
 .post-card__footer{
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
+    gap: 25px;
     align-items: center;
     padding: 0 20px 10px 20px;
 }
@@ -232,7 +239,7 @@ header{
 }
 
 .users::-webkit-scrollbar {
-    display: none; /* for Chrome, Safari, and Opera */
+    display: none;
 }
 
 .users__card-footer{
@@ -242,14 +249,46 @@ header{
     gap: 5px;
 }
 
-.post__details-card{
-    display: grid;
-    background-color: white;
+.post-card__comments{
+    background-color: rgb(234, 237, 237);
+    width: auto;
+    max-width: 100%;
+    padding: 10px 20px 10px 20px;
+    margin: 20px 30px 20px 30px ;
     border:1px solid #ccc;
     border-radius: 16px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
 }
+.post-card__comments .reply{
+    margin-left: 25px;
+}
+.post-card__comments .comment_reply{
+    padding-bottom: 10px;
+}
 
+.post-card__comments a{
+    display: inline-block;
+   color: var( --background-color);
+    text-decoration: none;
+    font-size: 1.6rem;
+    margin-bottom: 17px;
+}
+
+.post-card__comments-footer{
+    display: flex;
+    justify-content: flex-start;
+    gap: 5px;
+    padding-bottom: 10px;
+}
+
+.post-card__comments-footer form{
+    flex-grow: 2
+}
+
+.hidden{
+    display: none;
+}
+  
 
 @media (min-width: 900px){
     .navbar{
@@ -259,11 +298,11 @@ header{
         max-width: 1200px;
         flex-direction: row;
     }
-    .post_list{
+    .post-list{
         flex: 1 1 auto;
         overflow-y: scroll;
     }
-    .post_list::-webkit-scrollbar {
+    .post-list::-webkit-scrollbar {
         display: none; /* for Chrome, Safari, and Opera */
     }
 }

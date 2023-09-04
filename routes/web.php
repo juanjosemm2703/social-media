@@ -24,3 +24,7 @@ Route::get('users', function () {
 Route::get('post/{id}', function ($id) {
     return view('details_page');
 });
+
+Route::get('user/{id}', function ($id) {
+    return view('user_posts');
+});

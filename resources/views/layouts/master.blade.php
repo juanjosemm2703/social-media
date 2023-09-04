@@ -12,17 +12,18 @@
     <title>@yield('title')</title>
 </head>
 <body>
-<header>
-<div class="navbar">
-    <div class="navbar__logo">PostHub</div>
-    <nav class="navbar__nav">
-        <ul class = "navbar__links">
-            <li><a href="{{url("/")}}" class="navbar__link-item navbar__link-item--active"> Home </a></li>
-            <li><a href="{{url("users")}}" class="navbar__link-item"> Users </a></li>  
-        </ul>
-    </nav>
-</div>
-</header>
-    @yield('content')
+    <header>
+    <div class="navbar">
+        <div class="navbar__logo">PostHub</div>
+        <nav class="navbar__nav">
+            <ul class = "navbar__links">
+                <li><a href="{{url("/")}}" class="navbar__link-item navbar__link-item--active"> Home </a></li>
+                <li><a href="{{url("users")}}" class="navbar__link-item"> Users </a></li>  
+            </ul>
+        </nav>
+    </div>
+    </header>
+        @yield('content')
+    <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
