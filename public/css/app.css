@@ -104,6 +104,18 @@ header{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
 }
 
+.error {
+    font-size: 1.7rem;
+    border: 1px solid;
+    border-color: rgb(236, 71, 71);
+    color: rgb(236, 71, 71);
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #FFBABA;
+
+}
+
+
 .navbar {
     width: 100%;
     max-width: 600px;
@@ -247,6 +259,7 @@ header{
     justify-content: flex-start;
     align-items: center;
     gap: 5px;
+    padding: 5px;
 }
 
 .post-card__comments{
@@ -271,7 +284,7 @@ header{
    color: var( --background-color);
     text-decoration: none;
     font-size: 1.6rem;
-    margin-bottom: 17px;
+    margin-bottom: 10px;
 }
 
 .post-card__comments-footer{
@@ -283,6 +296,10 @@ header{
 
 .post-card__comments-footer form{
     flex-grow: 2
+}
+
+.post-card__comments-footer .form-row{
+    width: 100%;
 }
 
 .hidden{

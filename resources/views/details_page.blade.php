@@ -3,75 +3,110 @@
     Users Meda Media
 @endsection
 @section('content')
+
     <section class="posts">
+      
         <div class="post-form">
             <h2>Edit Post</h2>
-            <form>
-            <label for="postTitle">Post Title:</label><br>
-            <input type="text" id="postTitle" name="postTitle" value="Recipe Share - Delicious Chocolate Cake"><br>
-            <label for="post">Post:</label><br>
-            <textarea id="post" name="post" rows="4" cols="50">Made this incredible chocolate cake over the weekend. It's super moist and chocolaty. Here's the recipe!</textarea><br>
-            <input type="submit" value="Edit">
+            <form method="post" action="{{url("edit_post_action")}}">
+                @csrf
+                <input type="hidden" name="post_id" value="{{$post->post_id}}">
+                <label for="postTitle">Post Title:</label><br>
+                <input type="text" id="postTitle" name="postTitle" value="{{$post->title}}"><br>
+                <label for="post">Post:</label><br>
+                <textarea id="post" name="post" rows="4" cols="50">{{$post->message}}</textarea><br>
+                <input type="submit" value="Edit">
             </form>
+            @isset($data['errors'])
+                @foreach ($data['errors'] as $error)
+                    <div class="error">{{$error}}</div>
+                @endforeach
+            @endisset
         </div>
         <div class="post-list">
         <div class="post-card">
             <div class="post-card__title">
-                <h2>Recipe Share - Delicious Chocolate Cake</h2>
+                <h2>{{$post->title}}</h2>
             </div>
             <div class="post-card__message">
-                <p>Made this incredible chocolate cake over the weekend. It's super moist and chocolaty. Here's the recipe!</p>
+                <p>{{$post->message}}</p>
             </div>
             <div class="post-card__footer">
                 <div class="users__card-footer">
                     <i class="fa-regular fa-comment fa-lg"></i>
-                    <p>25</p>              
+                    <p>{{$post->comment_count}}</p>              
+                </div>
+                <div class="users__card-footer">    
+                    @if($post->user_liked == 1)
+                        <i class="fa-solid fa-thumbs-up fa-lg"></i>
+                    @elseif($data['userName'] == "")
+                        <i class="fa-regular fa-thumbs-up fa-lg"></i>
+                    @else
+                        <a href="{{url("like/$post->post_id")}}">
+                        <i class="fa-regular fa-thumbs-up fa-lg"></i>
+                        </a>
+                    @endif    
+                    <p>{{$post->likes}}</p>              
                 </div>
                 <div class="users__card-footer">
-                        <button type="submit" form="form0" value="submit">
-                            <i class="fa-regular fa-thumbs-up fa-lg"></i>
-                        </button>
-                    <p>10</p>              
+                <a href="{{url("delete_post/$post->post_id")}}"> 
+                        <i class="fa-solid fa-trash fa-lg"></i>
+                    </a>             
                 </div>
-                <div class="users__card-footer">
-                    <a href="#"> <i class="fa-solid fa-trash fa-lg"></i></i></a>             
-                </div>
-                <h4>@BakingEnthusiast</h4>
-                <p class="post-card__footer-date">September 3, 2023</p>
+                <h4>@ {{$post->author}}</h4>
+                <p class="post-card__footer-date">{{date_format(date_create($post->date),"F d, Y")}}</p>
             </div>
             <div class="post-form">
-            <h2>New comment</h2>
-            <form action="#" method="post" id="form0">
-                <label for="fname">User Name:</label><br>
-                <input type="text" id="uname" name="uname" placeholder="Your name..."><br>
-                <label for="comment">Comment:</label><br>
-                <input type="text" id="comment" name="comment" placeholder="Write a comment..."><br>
-                <input type="submit" value="Submit">
-            </form>
+                <h2>New comment</h2>
+                <form action="{{url("new_comment_action")}}" method="post">
+                    @csrf
+                    <label for="fname">User Name:</label><br>
+                    <input type="text" id="uname" name="uname" placeholder="Your name..." 
+                    @if($data['userName'] !== "")
+                        value="{{$data['userName']}}"
+                        readonly
+                    @endif
+                    ><br>
+                    <label for="comment">Comment:</label><br>
+                    <input type="text" id="comment" name="comment" placeholder="Write a comment..."><br>
+                    <input type="submit" value="Submit">
+                </form>
+                
             </div>
             <div class="post-card__comments">
                 <p class = "comment_reply">This is a comment</p>
-                <div class="post-card__comments-footer">
-                    <form action="reply/1" method="post" id="form1">
-                        <input type="text" id="comment" name="comment" placeholder="Write a comment..."><br>
-                    </form>
+                <a class="hide-replyForm"> 
+                    <div class="users__card-footer">
+                        <i class="fa-solid fa-reply fa-lg"></i>              
+                    </div>
+                </a>
+                <a class="hide-replies">
+                    <div class="users__card-footer">
+                        <i class="fa-regular fa-comment fa-lg"></i>
+                        <p>25</p>              
+                    </div>
+                </a>
+                <div class="post-card__comments-footer hidden">
+                    <table class="form-row">
+                        <form action="{{url("new_reply_action")}}" method="post" id="form1">
+                            @csrf
+                            <tr>
+                                <td><input type="text" id="uname" name="uname" placeholder="Your name..." 
+                                @if($data['userName'] !== "")
+                                    value="{{$data['userName']}}"
+                                    readonly
+                                @endif
+                                ><br></td>
+                                <td class="no-wrap"><input type="text" id="comment" name="comment" placeholder="Write a comment..."><br></td>
+                            </tr>
+                        </form>
+                    </table>
                     <button type="submit" form="form1" value="submit">
                         <i class="fa-regular fa-paper-plane fa-lg"></i>
-                    </button>
+                    </button> 
                 </div> 
-                <a class="hide"> Show replies...</a>
-                
+
                 <div class="reply hidden">
-                    <p class = "comment_reply">This is a comment</p>
-                    <div class="post-card__comments-footer">
-                        <form  action="#" method="get" id="form1">
-                            <input type="text" id="comment" name="comment" placeholder="Write a comment..."><br>
-                        </form>
-                        <button type="submit" form="form1" value="submit">
-                                <i class="fa fa-arrow-circle-right fa-lg"></i> 
-                        </button>
-                    </div> 
-                    <a class="hide"> Show replies...</a>
                 </div>
             
             </div>
