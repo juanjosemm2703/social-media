@@ -17,8 +17,8 @@
         <div class="navbar__logo">PostHub</div>
         <nav class="navbar__nav">
             <ul class = "navbar__links">
-                <li><a href="{{url("/")}}" class="navbar__link-item navbar__link-item--active"> Home </a></li>
-                <li><a href="{{url("users")}}" class="navbar__link-item"> Users </a></li>  
+                <li><a href="{{url("/")}}" class="navbar__link-item @if(isset($active_page) && $active_page == 'Home') navbar__link-item--active @endif"> Home </a></li>
+                <li><a href="{{url("users")}}" class="navbar__link-item  @if(isset($active_page) && $active_page == 'Users') navbar__link-item--active @endif"> Users </a></li>  
             </ul>
         </nav>
     </div>
