@@ -76,6 +76,7 @@ i{
 button{
     background-color: transparent;
     border: 0px;
+    cursor:pointer;
 }
 
 input[type=submit] {
@@ -179,7 +180,6 @@ header{
     display: none; 
 }
 
-
 .post-form{
     padding: 20px ;
     border-bottom: 1px solid #ccc;
@@ -190,6 +190,7 @@ header{
     width: auto;
     max-width: 100%;
     margin: 20px ;
+    padding: 10px 20px 10px 20px;
     border:1px solid #ccc;
     border-radius: 16px;
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
@@ -199,12 +200,12 @@ header{
 .post-card__title{
     display: flex;
     align-items: center;
-    gap:15px;
-    padding: 20px;
+
+    padding-bottom: 20px;
 }
 
 .post-card__message{
-    padding: 15px;
+    padding: 10px 0 10px 0;
 }
 
 .post-card__footer{
@@ -212,7 +213,7 @@ header{
     justify-content: flex-start;
     gap: 25px;
     align-items: center;
-    padding: 0 20px 10px 20px;
+    padding-bottom: 10px ;
 }
 
 .post-card__footer-date {
@@ -273,15 +274,15 @@ header{
     box-shadow: 0 2px 4px 0 rgba(0,0,0,0.3);
 }
 .post-card__comments .reply{
-    margin-left: 25px;
-}
-.post-card__comments .comment_reply{
-    padding-bottom: 10px;
+    margin-left: 28px;
 }
 
+.comment_reply{
+    padding-bottom: 10px;
+}
 .post-card__comments a{
     display: inline-block;
-   color: var( --background-color);
+    color: var( --background-color);
     text-decoration: none;
     font-size: 1.6rem;
     margin-bottom: 10px;

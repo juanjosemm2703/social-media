@@ -25,5 +25,6 @@
     </header>
         @yield('content')
     <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{asset('js/task2-validation.js')}}"></script>
 </body>
 </html>

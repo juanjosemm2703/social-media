@@ -1,6 +1,6 @@
 @extends('layouts.master')
 @section('title')
-    Users Meda Media
+    PostHub - User Posts
 @endsection
 @section('content')
     <section class="users">
