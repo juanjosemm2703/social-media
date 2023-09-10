@@ -34,10 +34,10 @@
                         <td><input type="text" id="message{{$comment->comment_id}}" name="message" placeholder="Write a comment..."></td>
                     </tr>
                 </table>
-                <button type="submit">
-                    <i class="fa-regular fa-paper-plane fa-lg"></i>
-                </button> 
             </form>
+            <button type="submit" form="form{{$comment->comment_id}}">
+                <i class="fa-regular fa-paper-plane fa-lg"></i>
+            </button> 
         </div>
         @if($comment->reply_count > 0)
         <div class="reply hidden">

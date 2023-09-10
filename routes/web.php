@@ -216,7 +216,10 @@ Route::post('new_reply_action', function () {
 });
 
 // Function to set the session name and id for a user
-// Functionality: Check if the user is already in session or add them if not.
+/*
+Functionality: This function sets the session name and ID for a user. 
+It checks if the user is already in session and adds them if not.
+*/
 function set_session_name($name){
     if (session()->has('user')) {
         return $user = session('user');
@@ -240,6 +243,10 @@ function set_session_name($name){
 }
 
 // Function to get the user from the session
+/*
+Functionality: This function retrieves the user from the session, 
+returning an empty user if the session does not contain user data
+*/
 function get_session_user(){
     $user=[
         "userId" => "",
@@ -252,6 +259,10 @@ function get_session_user(){
 }
 
 // Function to sort comments recursively
+/*
+Functionality: This function recursively sorts comments, 
+organizing them into a structure based on parent-child relationships.
+*/
 function sort_comments($comments, $parent_comment=null){
     $sorted_comments = [];
     foreach($comments as $comment){
@@ -267,7 +278,9 @@ function sort_comments($comments, $parent_comment=null){
 //Raw SQL queries. 
 
 //Post table queries.
-// Function to add a new post
+
+// Function to add a new post. 
+//Adds a new post to the database with the specified user ID, title, message, and date.
 function add_post($user_id, $title, $message, $date){
     $sql = "INSERT INTO Post (user_id, title, message, date)
             values(?, ?, ?, ? )";
@@ -275,7 +288,7 @@ function add_post($user_id, $title, $message, $date){
 }
 
 // Function to get posts
-// SQL query to retrieve posts with optional author and post ID filters
+// SQL query to retrieve posts with optional author and post ID filters.
 function get_posts($authorId = null, $postId = null){
     $sql = "SELECT user.name as author, post.post_id, post.title, post.message, post.date,
     (
@@ -314,6 +327,7 @@ function get_posts($authorId = null, $postId = null){
 }
 
 // Function to delete a post
+//Deletes a post from the database based on the given post ID.
 function delete_post($post_id){
     $sql = "DELETE FROM post 
             WHERE post_id = ?;";
@@ -321,13 +335,16 @@ function delete_post($post_id){
 }
 
 // Function to edit a post
+// Edits an existing post in the database with the specified title, message, and date.
 function edit_post($title, $message, $date, $post_id){
     $sql ="update post set title = ? ,message = ?, date = ? where post_id = ?";
     DB::update($sql,array($title, $message, $date, $post_id));
 }
 
 //User table queries.
+
 // Function to add a new user
+// Adds a new user to the database with the given name and returns the user's ID.
 function add_user($name){
     $sql = "INSERT INTO User (name) values(?);";
     DB::insert($sql, array($name));
@@ -336,6 +353,7 @@ function add_user($name){
 }
 
 // Function to retrieve users
+// Retrieves a list of distinct users from the database
 function get_users(){
     $sql = "SELECT DISTINCT user.user_id, user.name, COUNT(*) AS post_count
     FROM user, post
@@ -347,6 +365,7 @@ function get_users(){
 }
 
 // Function to get a user by name
+// Retrieves a user from the database by their name and returns their information
 function get_user_by_name($name){
     $sql = "SELECT * FROM user where name = ?;";
     $user = DB::select($sql, array($name));
@@ -357,7 +376,10 @@ function get_user_by_name($name){
 }
 
 //Comment table queries.
+
 // Function to add a new comment or a comment reply.
+// Adds a new comment or a reply to a comment in the database 
+// with the specified user ID, post ID, message, and date.
 function add_comment($userId, $postId, $message, $date, $parentCommentId =null){
     $sql = "INSERT INTO Comment (user_id,parent_comment_id, post_id,message,date) 
             values(?, ?, ?, ?, ?);";
@@ -365,6 +387,7 @@ function add_comment($userId, $postId, $message, $date, $parentCommentId =null){
 }
 
 // Function to retrieve comments for a specific post
+// Retrieves comments for a specific post from the database, ordered by date.
 function get_comments($post_id){
     $sql = "SELECT comment.comment_id, user.name as author, comment.parent_comment_id, comment.post_id, comment.message, comment.date
     FROM comment, user 
@@ -376,6 +399,7 @@ function get_comments($post_id){
 }
 
 // Function to delete comments for a post
+// Deletes all comments for a specific post from the database.
 function delete_comments($post_id){
     $sql = "DELETE FROM comment 
             WHERE post_id = ?;";
@@ -383,6 +407,7 @@ function delete_comments($post_id){
 }
 
 // Function to add a like for a post
+// Adds a like for a post in the database, associating it with the user.
 function add_like($post_id, $user_id){
     $sql = "INSERT INTO Post_likes (post_id, user_id)
             VALUES(?, ?)";
@@ -390,6 +415,7 @@ function add_like($post_id, $user_id){
 }
 
 // Function to delete a like for a post
+// Deletes a like for a post from the database, optionally specifying a user.
 function delete_like($post_id, $user_id=null){
     $sql = "DELETE FROM Post_likes 
             WHERE post_id = ?";
@@ -405,6 +431,7 @@ function delete_like($post_id, $user_id=null){
 }
 
 // Function to retrieve information about a user's like on a post
+// Retrieves information about a user's like on a specific post from the database.
 function get_like($post_id, $user_id){
     $sql = "SELECT like_id
     FROM post_likes
